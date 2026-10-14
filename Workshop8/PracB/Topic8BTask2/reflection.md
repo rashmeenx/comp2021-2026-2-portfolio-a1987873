@@ -19,3 +19,11 @@ Because the Garbage Collector manages the managed heap where .NET objects are st
 GC.Collect() forces a garbage collection to run. It checks for objects that are no longer reachable and attempts to reclaim their memory.
 ### 4. Was the PeakWorkingSet64 different to the HeapSizeBytes? Why?
 Yes, it is usually larger. HeapSizeBytes measures the managed .NET heap, while PeakWorkingSet64 measures the maximum physical memory used by the entire process. That includes more than just managed objects, such as runtime memory, libraries, stacks, and other operating system resources.
+
+## Reflection from Task 5
+
+### 1. Which class used more memory?
+LinkedList<Player> use more memory than List<Player>.
+### 2. Why?
+A List<T> mainly stores its elements in one array.
+A LinkedList<T> stores each item inside a separate node, and each node also keeps references to the previous and next nodes. Those extra references and node objects require additional memory.
