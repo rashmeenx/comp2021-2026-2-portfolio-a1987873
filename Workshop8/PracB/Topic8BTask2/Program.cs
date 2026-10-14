@@ -5,13 +5,12 @@ class Program
 {
     static void Main()
     {
-        LinkedList<Player> players = new LinkedList<Player>();
+        List<Player> players = new List<Player>();
 
-        players.AddLast(new Player("Rashmeen", 100, 20, 10));
-        players.AddLast(new Player("Alex", 90, 15, 8));
-        players.AddLast(new Player("Sam", 120, 25, 12));
-        players.AddLast(new Player("Chris", 80, 18, 7));
-        players.AddLast(new Player("Jordan", 110, 22, 9));
+        for (int i = 0; i < 10_000; i++)
+        {
+            players.Add(new Player($"Player{i}", 100, 10, 5));
+        }
 
         string path = @"./Attachments/players.json";
 
@@ -19,8 +18,8 @@ class Program
 
         FileWriter(path, players);
 
-        LinkedList<Player> loadedPlayers =
-            FileReader<LinkedList<Player>>(path);
+        List<Player> loadedPlayers =
+            FileReader<List<Player>>(path);
 
         GC.Collect();
 
