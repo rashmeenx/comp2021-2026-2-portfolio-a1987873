@@ -9,3 +9,13 @@ JsonSerializer normally serialises public properties. If properties are not publ
 ## Reflection from Task 3
 ### What does where T : class mean?
 It means the generic type T must be a reference type, such as a class. It prevents value types like int, double, or bool from being used with that method.
+
+## Reflection from Task 4
+### 1. What is the purpose of the Garbage Collector?
+The Garbage Collector automatically manages memory in .NET. It finds objects that are no longer being used and frees the memory occupied by them.
+### 2. Why does it know the current amount of bytes allocated to the Heap?
+Because the Garbage Collector manages the managed heap where .NET objects are stored, so it keeps track of how much memory is currently allocated there.
+### 3. What does GC.Collect() do?
+GC.Collect() forces a garbage collection to run. It checks for objects that are no longer reachable and attempts to reclaim their memory.
+### 4. Was the PeakWorkingSet64 different to the HeapSizeBytes? Why?
+Yes, it is usually larger. HeapSizeBytes measures the managed .NET heap, while PeakWorkingSet64 measures the maximum physical memory used by the entire process. That includes more than just managed objects, such as runtime memory, libraries, stacks, and other operating system resources.

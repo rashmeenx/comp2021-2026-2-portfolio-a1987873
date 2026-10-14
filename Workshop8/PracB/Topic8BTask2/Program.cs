@@ -1,44 +1,42 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Text.Json;
 
 class Program
 {
     static void Main()
     {
-        List<Player> players = new List<Player>
-        {
-            new Player("Rashmeen", 100, 20, 10),
-            new Player("Alex", 90, 15, 8),
-            new Player("Sam", 120, 25, 12),
-            new Player("Chris", 80, 18, 7),
-            new Player("Jordan", 110, 22, 9)
-        };
+        LinkedList<Player> players = new LinkedList<Player>();
+
+        players.AddLast(new Player("Rashmeen", 100, 20, 10));
+        players.AddLast(new Player("Alex", 90, 15, 8));
+        players.AddLast(new Player("Sam", 120, 25, 12));
+        players.AddLast(new Player("Chris", 80, 18, 7));
+        players.AddLast(new Player("Jordan", 110, 22, 9));
 
         string path = @"./Attachments/players.json";
 
         Directory.CreateDirectory("./Attachments");
 
-        // Changed: instead of serializing and writing here, we now call the FileWriter method
         FileWriter(path, players);
 
-        // Changed: instead of reading and deserializing here, we now call the FileReader method
-        List<Player> loadedPlayers = FileReader<List<Player>>(path);
+        LinkedList<Player> loadedPlayers =
+            FileReader<LinkedList<Player>>(path);
 
-        foreach (Player player in loadedPlayers)
-        {
-            Console.WriteLine(
-                $"{player.Name} - HP: {player.Health}, ATK: {player.Attack}, DEF: {player.Defence}"
-            );
-        }
+        GC.Collect();
+
+        long heapSize = GC.GetGCMemoryInfo().HeapSizeBytes;
+        long peakMemory = Process.GetCurrentProcess().PeakWorkingSet64;
+
+        Console.WriteLine($"Heap Size: {heapSize} bytes");
+        Console.WriteLine($"Peak Working Set: {peakMemory} bytes");
     }
 
-    // Changed: new reusable method for writing JSON to a file
     public static void FileWriter<T>(string path, T objectToWrite) where T : class
     {
         string jsonString = JsonSerializer.Serialize(objectToWrite);
         File.WriteAllText(path, jsonString);
     }
 
-    // Changed: new reusable method for reading JSON from a file
     public static T FileReader<T>(string path) where T : class
     {
         string jsonString = File.ReadAllText(path);
