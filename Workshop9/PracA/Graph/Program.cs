@@ -24,6 +24,52 @@ class Program
         graph.AddEdge(E, H);
         graph.AddEdge(F, I);
 
-        Console.WriteLine(graph);
+        Console.WriteLine("Original Graph BFS:");
+        BFS(A, I);
+
+        // Task 2 addition.
+        F.Edges.Remove(I);
+        I.Edges.Remove(F);
+
+        graph.AddEdge(G, H);
+        graph.AddEdge(H, I);
+
+        Console.WriteLine("\nAdjusted Graph BFS:");
+        BFS(A, I);
+    }
+
+    static void BFS(Node start, Node target)
+    {
+        Queue<Node> queue = new Queue<Node>();
+        HashSet<Node> visited = new HashSet<Node>();
+        List<string> checkedNodes = new List<string>();
+
+        queue.Enqueue(start);
+        visited.Add(start);
+
+        while (queue.Count > 0)
+        {
+            Node current = queue.Dequeue();
+
+            checkedNodes.Add(current.Data);
+
+            if (current == target)
+            {
+                Console.WriteLine("Target found!");
+                break;
+            }
+
+            foreach (Node neighbour in current.Edges)
+            {
+                if (!visited.Contains(neighbour))
+                {
+                    visited.Add(neighbour);
+                    queue.Enqueue(neighbour);
+                }
+            }
+        }
+
+        Console.WriteLine("Checked: " +
+            string.Join(" ", checkedNodes));
     }
 }
