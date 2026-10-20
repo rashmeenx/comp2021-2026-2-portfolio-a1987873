@@ -20,3 +20,14 @@ V = number of vertices (nodes).
 E = number of edges (connections).
 BFS processes each node and examines its edges, so its running time grows with both.
 |V| + |E| = Total number of vertices plus edges.
+
+
+### Task 3
+### For the initial graph, which algorithm would find the target faster, BFS or DFS? Why?
+Answer: DFS finds the target faster because it follows A → C → F → I directly, explores one branch deeply before moving to another, whereas BFS explores nodes level by level, visiting all 9 nodes before reaching I.
+
+### For the adjusted graph, which algorithm would find the target faster, BFS or DFS? Why?
+Answer: DFS also finds the target faster with this implementation because it reaches I through A → C → F → I before exploring other branches.
+
+### If the algorithms are different, how can the computational complexity of BFS and DFS be the same?
+Answer: Both have O(V+E) time complexity, where V represents the number of vertices and E represents the number of edges. Although BFS uses a queue to explore nodes level by level and DFS uses a stack to explore branches deeply, both algorithms visit each vertex at most once and examine its connected edges. Therefore, in the worst case, both process all vertices and edges, giving them the same time complexity despite their different traversal methods.

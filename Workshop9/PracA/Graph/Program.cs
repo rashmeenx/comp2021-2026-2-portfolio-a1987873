@@ -1,5 +1,4 @@
-﻿
-class Program
+﻿class Program
 {
     static void Main()
     {
@@ -24,32 +23,32 @@ class Program
         graph.AddEdge(E, H);
         graph.AddEdge(F, I);
 
-        Console.WriteLine("Original Graph BFS:");
-        BFS(A, I);
+        Console.WriteLine("\nOriginal Graph DFS:");
+        DFS(A, I);
 
-        // Task 2 addition.
-        F.Edges.Remove(I);
-        I.Edges.Remove(F);
-
+        graph.AddEdge(D, E);
+        graph.AddEdge(E, F);
         graph.AddEdge(G, H);
+        graph.AddEdge(F, H);
         graph.AddEdge(H, I);
 
-        Console.WriteLine("\nAdjusted Graph BFS:");
-        BFS(A, I);
+        Console.WriteLine("\nAdjusted Graph DFS:");
+        DFS(A, I);
     }
 
-    static void BFS(Node start, Node target)
+
+    static void DFS(Node start, Node target)
     {
-        Queue<Node> queue = new Queue<Node>();
+        Stack<Node> stack = new Stack<Node>();
         HashSet<Node> visited = new HashSet<Node>();
         List<string> checkedNodes = new List<string>();
 
-        queue.Enqueue(start);
+        stack.Push(start);
         visited.Add(start);
 
-        while (queue.Count > 0)
+        while (stack.Count > 0)
         {
-            Node current = queue.Dequeue();
+            Node current = stack.Pop();
 
             checkedNodes.Add(current.Data);
 
@@ -64,7 +63,7 @@ class Program
                 if (!visited.Contains(neighbour))
                 {
                     visited.Add(neighbour);
-                    queue.Enqueue(neighbour);
+                    stack.Push(neighbour);
                 }
             }
         }
