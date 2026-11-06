@@ -1,6 +1,5 @@
 # comp2021-2026-2-portfolio-a1987873-2-
-
-An overview of the repository structure, including:  
+  
 Student name: Rashmeen Islam
 ID: a1987873
 Description of each module/topic:
