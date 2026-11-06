@@ -11,6 +11,7 @@ Description of each module/topic:
 - Topic 4: Learnt how to use debugger and how to refactor codes according to coding standard.
 - Topic 5: Learnt the difference between Arrays and LinkedList and how to use them.
 - Topic 6: Learnt the difference between two data structure- stack and queues where stack being LIFO(last in first out) and Queue being FIFO(First in first out)
+- Module 3:
 - Topic 7: Learnt about trees and heaps.
 - Topic 8: Learnt the knowledge of hash tables and complexity analysis.
 - Topic 9: Learnt about graphs and application and dijkstra's algorithm.
