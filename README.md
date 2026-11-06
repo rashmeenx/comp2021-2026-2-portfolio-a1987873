@@ -3,19 +3,19 @@
 Student name: Rashmeen Islam
 ID: a1987873
 Description of each module/topic:
-Module 1:
-Topic 1: We translated code from python to C#
-Topic 2: Learnt to write classes, methods and Properties.
-Topic 3: Learnt Inheritance, polymorphism and interface.
-Module 2:
-Topic 4: Learnt how to use debugger and how to refactor codes according to coding standard.
-Topic 5: Learnt the difference between Arrays and LinkedList and how to use them.
-Topic 6: Learnt the difference between two data structure- stack and queues where stack being LIFO(last in first out) and Queue being FIFO(First in first out)
-Topic 7: Learnt about trees and heaps.
-Topic 8: Learnt the knowledge of hash tables and complexity analysis.
-Topic 9: Learnt about graphs and application and dijkstra's algorithm.
+-Module 1:
+-Topic 1: We translated code from python to C#
+-Topic 2: Learnt to write classes, methods and Properties.
+-Topic 3: Learnt Inheritance, polymorphism and interface.
+-Module 2:
+-Topic 4: Learnt how to use debugger and how to refactor codes according to coding standard.
+-Topic 5: Learnt the difference between Arrays and LinkedList and how to use them.
+-Topic 6: Learnt the difference between two data structure- stack and queues where stack being LIFO(last in first out) and Queue being FIFO(First in first out)
+-Topic 7: Learnt about trees and heaps.
+-Topic 8: Learnt the knowledge of hash tables and complexity analysis.
+-Topic 9: Learnt about graphs and application and dijkstra's algorithm.
 
-And in the topic 10: We attempted the sample questions.
+-And in the topic 10: We attempted the sample questions.
 
 
 Instructions for running examples: go to each of their own directories in the terminal and run "dotnet run", it will be run using the .NET.
